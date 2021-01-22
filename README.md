@@ -1,5 +1,5 @@
 # Work Day Scheduler
-![Demo of application](https://github.com/kpessa/work-day-scheduler/raw/main/Assets/images/demo.gif)
+![Demo of application](https://github.com/kpessa/work-day-scheduler/raw/main/assets/images/demo.gif)
 
 ## Purpose
 A simple quiz application to demonstrate manipulation of DOM, javascript logic, and persistent local storage.
