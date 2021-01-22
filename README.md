@@ -1,5 +1,5 @@
 # Work Day Scheduler
-![Demo of application](https://github.com/kpessa/task-calendar/raw/main/assets/images/demo.gif)
+![Demo of application](https://github.com/kpessa/work-day-scheduler/raw/main/assets/images/demo.gif)
 
 ## Purpose
 A simple quiz application to demonstrate manipulation of DOM, javascript logic, and persistent local storage.
@@ -10,7 +10,7 @@ A simple quiz application to demonstrate manipulation of DOM, javascript logic, 
 * Javascript
 
 ## Website
-https://kpessa.github.io/task-calendar/
+https://kpessa.github.io/work-day-scheduler/
 
 ## Contribution
 Made with ❤️ by Kurt
