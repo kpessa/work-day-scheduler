@@ -34,8 +34,8 @@ var createDescriptionColumn = function (hour) {
 
   var colDesc = $('<div>').addClass('col-10 description').append(textArea);
 
-  var presentHour = +moment().format('H');
-  // var presentHour = 12; // for testing
+  // var presentHour = +moment().format('H');
+  var presentHour = 12; // for testing
 
   if (hour < presentHour) {
     colDesc.addClass('past');
