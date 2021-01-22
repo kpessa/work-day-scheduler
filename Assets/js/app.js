@@ -1,6 +1,17 @@
 var container = $('.container');
-var descriptions = new Array(9);
+var descriptions = new Array(9); // Used to keep track of entered text
 
+// ! ------------------------------------------------------
+// ! 1.) Assigning current day to the top of the calendar
+// ! ------------------------------------------------------
+$('#currentDay').text(moment().format('dddd, MMMM Do, YYYY'));
+
+// ! ------------------------------------------------------
+// ! 2.) Creating HTML / View Programmatically
+// !       a.) Time Column
+// !       b.) Description Column
+// !       c.) Save Button Column
+// ! ------------------------------------------------------
 var createTimeColumn = function (hour) {
   var unit;
   var displayHour;
@@ -15,10 +26,16 @@ var createTimeColumn = function (hour) {
 };
 
 var createDescriptionColumn = function (hour) {
-  var colDesc = $('<div>').addClass('col-10 description').append($('<textarea>').attr('data-hour', hour));
+  descriptions = JSON.parse(localStorage.getItem('descriptions')) || new Array(9);
+
+  var textArea = $('<textarea>')
+    .attr('data-hour', hour)
+    .text(descriptions[hour - 9]);
+
+  var colDesc = $('<div>').addClass('col-10 description').append(textArea);
 
   var presentHour = +moment().format('H');
-  // var presentHour = 12;  // for testing
+  // var presentHour = 12; // for testing
 
   if (hour < presentHour) {
     colDesc.addClass('past');
@@ -48,13 +65,21 @@ var createRow = function (hour) {
   return div;
 };
 
-for (var hour = 9; hour <= 17; hour++) {
-  container.append(createRow(hour));
-}
+var createView = function () {
+  for (var hour = 9; hour <= 17; hour++) {
+    container.append(createRow(hour));
+  }
+};
 
+createView();
+
+// ! ------------------------------------------------------
+// ! 3.) Handle click events on Save Icons
+// ! ------------------------------------------------------
 $('.container').on('click', 'i', function () {
   var dataHour = $(this).attr('data-hour');
-  var jqueryThis = $(this);
   var arrayIndex = dataHour - 9;
   descriptions[arrayIndex] = $(`textarea[data-hour=${dataHour}]`).val().trim();
+
+  localStorage.setItem('descriptions', JSON.stringify(descriptions));
 });
