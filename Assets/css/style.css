@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -6,14 +11,21 @@ body {
 
 textarea{
   background: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+}
+
+.col-10, .col-1 {
+  padding: 0;
 }
 
 .jumbotron {
+  padding: 0rem 2rem;
   text-align: center;
   background-color: transparent;
   color: black;
@@ -36,7 +48,16 @@ textarea{
   border-top: 1px solid white;;
 }
 
+@media only screen and (max-width: 768px){
+  .hour {
+    font-size: 14px;
+  }
+}
+
 .hour {
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 10px;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
@@ -58,6 +79,9 @@ textarea{
 }
 
 .saveBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
